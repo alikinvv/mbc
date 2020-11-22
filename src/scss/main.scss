@@ -1,0 +1,72 @@
+@charset 'UTF-8';
+@import 'mixins';
+
+$trans: all .2s ease-in-out;
+$green: #408B6E;
+$reg: #9E1313;
+$blue:  #164B71;
+$ftr: #1D3142;
+$ftr2: #2D4254;
+$gray: #D5D6D8;
+$light-gray: #F5F9FA;
+
+
+// @include font-face('fontName', '../fonts/fontPath/fontName', normal); 
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #000;
+}
+
+.icon {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	font-size: 30px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+	margin-top: 0;
+}
+
+.btn,
+input,
+textarea,
+button:focus {
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.btn {
+	display: inline-block;
+	transition: $trans;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.container {
+	@include r(1187) {
+		padding: 0 20px;
+	}
+
+	width: 1147px;
+	margin: 0 auto;
+}
