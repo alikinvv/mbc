@@ -10,9 +10,6 @@ $ftr2: #2D4254;
 $gray: #D5D6D8;
 $light-gray: #F5F9FA;
 
-
-// @include font-face('fontName', '../fonts/fontPath/fontName', normal); 
-
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
@@ -23,7 +20,8 @@ body {
 	display: inline-block;
 	width: 2em;
 	height: 2em;
-	font-size: 30px;
+	font-size: inherit;
+	color: inherit;
 }
 
 * {
@@ -56,6 +54,23 @@ a {
 	text-decoration: none;
 	border: 0;
 	cursor: pointer;
+	padding: 10px 27px;
+	background: $green;
+	color: #fff;
+
+	&:hover {
+		background: darken($color: $green, $amount: 10%);
+	}
+
+	&-outline {
+		background: transparent;
+		border: 1px solid #fff;
+
+		&:hover {
+			background: #fff;
+			color: $green;
+		}
+	}
 
 	&:focus {
 		outline: none;
@@ -69,4 +84,125 @@ a {
 
 	width: 1147px;
 	margin: 0 auto;
+}
+
+.header {
+	&__top {
+		background: $green;
+		color: #fff;
+		font-size: 13px;
+
+		.container {
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 1207px;
+			position: relative;
+
+			& > div {
+				display: flex;
+				align-items: center;
+				height: 100%;
+			}
+		}
+
+		.btn {
+			padding: 6px 15px;
+		}
+	}
+
+	&__divider {
+		width: 2px;
+		height: 100%;
+		background: #fff;
+		margin: 0 9px;
+	}
+
+	&__social {
+		a {
+			display: inline-block;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			svg {
+				color: #fff;
+			}
+		}
+	}
+
+	&__login {
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+
+		.icon {
+			font-size: 10px;
+			margin-right: 8px;
+		}
+	}
+
+	&__eye {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		top: -28px;
+		transform: translateX(-50%);
+		background: #fff;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px !important;
+
+		.icon {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 0;
+		}
+	}
+
+	&__main {
+		padding: 35px 0;
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+
+	&__left {
+		a {
+			margin-right: 23px;
+			font-size: 15px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+
+		.btn {
+			font-weight: bold;
+		}
+	}
+
+	&__links {
+		margin-right: 70px;
+		
+		a {
+			margin-right: 23px;
+			font-size: 15px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
 }
