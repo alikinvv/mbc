@@ -20,6 +20,11 @@ let reviews = new Swiper('.reviews__slider', {
         nextEl: '.reviews__slider .swiper-button-next',
         prevEl: '.reviews__slider .swiper-button-prev',
     },
+    breakpoints: {
+        768: {
+          slidesPerView: 3,
+        }
+      }
 });
 
 let find = new Swiper('.find__list', {
@@ -40,6 +45,10 @@ let changeView = () => {
             spaceBetween: 30,
             loopFillGroupWithBlank: true,
         });
+
+        $('.footer').append('<div class="container mobile"></div>');
+        $('.footer .mobile').append($('.footer p'));
+        $('.footer .mobile').append($('.footer__social'));
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
         find.destroy();
