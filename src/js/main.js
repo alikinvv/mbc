@@ -52,6 +52,9 @@ let changeView = () => {
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
         find.destroy();
+        $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile p'));
+        $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile .footer__social'));
+        $('.footer .container.mobile').remove();
     }
 }
 
