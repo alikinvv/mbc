@@ -45,6 +45,10 @@ body {
 	color: #fff;
 }
 
+input {
+	border-radius: 0;
+}
+
 h1,
 h2,
 h3,
@@ -2459,6 +2463,7 @@ input[type="radio"].full {
 	form {
 		@include r(767) {
 			margin-bottom: 32px;
+			justify-content: center;
 		}
 
 		display: flex;
