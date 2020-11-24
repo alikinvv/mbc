@@ -45,8 +45,9 @@ body {
 	color: #fff;
 }
 
+textarea,
 input {
-	border-radius: 0;
+	appearance: none;
 }
 
 h1,
