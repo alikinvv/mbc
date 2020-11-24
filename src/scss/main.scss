@@ -18,6 +18,10 @@ body {
 }
 
 body {
+	@include r(767) {
+		font-size: 12px;
+	}
+
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	color: #000;
@@ -50,6 +54,11 @@ ul {
 }
 
 h1 {
+	@include r(767) {
+		font-size: 24px;
+		text-align: center;
+	}
+
 	font-size: 36px;
 	font-weight: bold;
 	text-align: center;
@@ -67,6 +76,10 @@ h2 {
 		font-size: 20px;
 	}
 
+	@include r(767) {
+		font-size: 18px;
+	}
+
 	font-size: 24px;
 	font-weight: bold;
 	margin: 10px 0 9px;
@@ -75,8 +88,22 @@ h2 {
 	line-height: 130%;
 
 	&.left {
+		@include r(767) {
+			text-align: center;
+		}
+
 		text-align: left;
 	}
+}
+
+h3 {
+	@include r(767) {
+		font-size: 16px;
+	}
+
+	font-weight: bold;
+	font-size: 18px;
+	margin: 10px 0;
 }
 
 h3 {
@@ -86,6 +113,10 @@ h3 {
 }
 
 .subtitle {
+	@include r(767) {
+		font-size: 16px;
+	}
+
 	font-size: 18px;
 	text-align: center;
 	margin-bottom: 10px;
@@ -117,6 +148,10 @@ p {
 }
 
 .btn {
+	@include r(767) {
+		font-size: 12px;
+	}
+
 	display: inline-block;
 	transition: $trans;
 	text-decoration: none;
@@ -168,6 +203,10 @@ input[type="radio"].full {
 	}
 
 	& + label {
+		@include r(767) {
+			padding: 10px 6px;
+		}
+
 		padding: 11px 28px;
 		text-transform: uppercase;
 		color: $green;
@@ -240,14 +279,12 @@ input[type="radio"].full {
 				top: 0;
 				transform: rotate(45deg);
 				transition: top .2s ease-in-out, transform .2s ease-in-out .2s;
-				background: #fff;
 			}
 
 			&::after {
 				bottom: 0;
 				transform: rotate(-45deg);
 				transition: bottom .2s ease-in-out, transform .2s ease-in-out .2s;
-				background: #fff;
 			}
 		}
 	}
@@ -339,7 +376,19 @@ input[type="radio"].full {
 			}
 		}
 
+		&-right {
+			@include r(767) {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+
 		.btn {
+			@include r(767) {
+				font-size: 10px;
+				padding: 6px 11px;
+			}
+
 			padding: 6px 15px;
 			text-transform: initial;
 		}
@@ -357,6 +406,10 @@ input[type="radio"].full {
 	}
 
 	&__social {
+		@include r(767) {
+			display: none;
+		}
+		
 		a {
 			@include r(1023) {
 				margin-right: 2px;
@@ -398,6 +451,10 @@ input[type="radio"].full {
 		font-size: 12px;
 
 		.icon {
+			@include r(767) {
+				margin-right: 0;
+			}
+
 			font-size: 10px;
 			margin-right: 8px;
 			fill: #fff;
@@ -417,6 +474,10 @@ input[type="radio"].full {
 
 		@include r(1023) {
 			left: 50%;
+		}
+
+		@include r(767) {
+			display: none !important;
 		}
 
 		position: absolute;
@@ -465,34 +526,65 @@ input[type="radio"].full {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: rgba(0,0,0,0.9);
+			background: #fff;
 			z-index: 50;
-			color: #fff;
+			color: #000;
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: flex-start;
 			flex-direction: column;
+			padding: 20px;
 
+			.header__left {
+				margin-top: 15% !important;
+			}
+	
 			a {
 				font-size: 30px !important;
-				margin-bottom: 15px !important;
+				margin: 0 0 15px !important;
 				transform: translateX(-60px);
 				transition: $trans;
 				opacity: 0;
+				border-bottom: 1px solid $gray;
+				padding-bottom: 15px;
+				width: 100%;
+			}
+	
+			img {
+				position: absolute;
+				top: 58px;
+				left: 50%;
+				transform: translateX(-50%);
 			}
 		}
 
+		@include r(767) {
+			.header__left {
+				margin-top: 50% !important;
+			}
+
+			a {
+				font-size: 14px !important;
+				padding-bottom: 17px !important;
+			}
+
+			img {
+				top: 64px !important;
+				width: 130px !important;
+			}
+		}
+	
 		&.active {
 			opacity: 1;
 			pointer-events: all;
 			user-select: normal;
-
+	
 			a {
 				transform: translateX(0);
 				opacity: 1;
 			}
 		}
-
+	
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -504,6 +596,7 @@ input[type="radio"].full {
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+			width: 100%;
 		}
 
 		a {
@@ -532,6 +625,11 @@ input[type="radio"].full {
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+			width: 100%;
+
+			a:last-child {
+				border: 0;
+			}
 		}
 		
 		display: flex;
@@ -539,9 +637,7 @@ input[type="radio"].full {
 
 		.btn {
 			@include r(1023) {
-				position: relative;
-				top: 30%;
-				transition-delay: 800ms;
+				display: none;
 			}
 			
 			font-weight: bold;
@@ -559,6 +655,7 @@ input[type="radio"].full {
 			align-items: center;
 			flex-direction: column;
 			margin: 0;
+			width: 100%;
 		}
 
 		margin-right: 70px;
@@ -586,6 +683,12 @@ input[type="radio"].full {
 	}
 
 	&__logo {
+		@include r(767) {
+			bottom: -68px;
+			height: 105px;
+			padding-bottom: 10px;
+		}
+
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -598,6 +701,12 @@ input[type="radio"].full {
 		padding-bottom: 15px;
 		
 		&::before {
+			@include r(767) {
+				left: -40px;
+				bottom: 16px;
+				width: 64px;
+			}
+
 			content: '';
 			position: absolute;
 			left: -49px;
@@ -610,6 +719,12 @@ input[type="radio"].full {
 		}
 
 		&::after {
+			@include r(767) {
+				right: -40px;
+				bottom: 16px;
+				width: 64px;
+			}
+
 			content: '';
 			position: absolute;
 			right: -49px;
@@ -620,12 +735,24 @@ input[type="radio"].full {
 			background: #fff;
 			border-bottom: 1px solid #D5D6D8;
 		}
+
+		img {
+			@include r(767) {
+				position: relative;
+				z-index: 1;
+				width: 130px;
+			}
+		}
 	}
 }
 
 .main {
 	&__slider {
 		.swiper-slide {
+			@include r(767) {
+				padding: 67px 0 91px;
+			}
+
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: cover;
@@ -650,12 +777,27 @@ input[type="radio"].full {
 		}
 
 		&-icon {
+			@include r(767) {
+				width: 70px;
+				margin-bottom: 22px;
+
+				img {
+					width: 100%;
+				}
+			}
+
 			margin-bottom: 20px;
 			position: relative;
 			z-index: 1;
 		}
 
 		&-title {
+			@include r(767) {
+				font-size: 18px;
+				line-height: 1.3;
+				margin-bottom: 14px;
+			}
+
 			font-weight: bold;
 			margin-bottom: 22px;
 			font-size: 24px;
@@ -664,6 +806,11 @@ input[type="radio"].full {
 		}
 
 		&-btn {
+			@include r(767) {
+				font-size: 12px;
+				padding: 16px 25px;
+			}
+
 			letter-spacing: -0.01em;
 			font-weight: bold;
 			padding: 22px 48px;
@@ -708,10 +855,20 @@ input[type="radio"].full {
 			display: block;
 		}
 
+		@include r(767) {
+			bottom: 45px;
+		}
+
 		display: none;
 		bottom: 25px;
 
 		&-bullet {
+			@include r(767) {
+				width: 8px;
+				height: 8px;
+				border: 1px solid #fff;
+			}
+
 			width: 12px;
 			height: 12px;
 			border: 2px solid #fff;
@@ -730,11 +887,19 @@ input[type="radio"].full {
 		margin-top: 0;
 	}
 
+	@include r(767) {
+		margin-top: 53px;
+	}
+
 	margin-top: -47px;
     position: relative;
 	z-index: 2;
 	
 	.container {
+		@include r(767) {
+			padding: 0;
+		}
+
 		display: flex;
 		justify-content: center;
 	}
@@ -745,6 +910,10 @@ input[type="radio"].full {
 			border: 0;
 		}
 
+		@include r(767) {
+			padding-left: 20px;
+		}
+
 		display: flex;
 		border: 1px solid $green;
 		box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -753,6 +922,12 @@ input[type="radio"].full {
 	&__item {
 		@include r(1023) {
 			flex-shrink: 0;
+		}
+
+		@include r(767) {
+			padding: 0;
+			text-align: left;
+			align-items: flex-start;
 		}
 
 		padding: 41px 43px;
@@ -776,6 +951,10 @@ input[type="radio"].full {
 			.find__text,
 			.find__title,
 			.find__link {
+				@include r(1023) {
+					color: #000;
+				}
+
 				color: #fff;
 			}
 
@@ -786,6 +965,13 @@ input[type="radio"].full {
 	}
 
 	&__title {
+		@include r(767) {
+			text-align: left;
+			width: 100%;
+			font-size: 16px;
+			margin-bottom: 11px;
+		}
+
 		text-align: center;
 		font-weight: bold;
 		font-size: 18px;
@@ -795,6 +981,12 @@ input[type="radio"].full {
 	}
 
 	&__text {
+		@include r(767) {
+			font-size: 12px;
+			width: 100%;
+			margin-bottom: 12px;
+		}
+
 		text-align: left;
 		margin-bottom: 29px;
 		line-height: 152.9%;
@@ -802,6 +994,11 @@ input[type="radio"].full {
 	}
 
 	&__btn {
+		@include r(767) {
+			padding: 13px 32px;
+			margin-bottom: 6px;
+		}
+
 		padding: 11px 23px;
 		margin-bottom: 5px;
 		border: 1px solid $green;
@@ -809,6 +1006,11 @@ input[type="radio"].full {
 	}
 
 	&__link {
+		@include r(767) {
+			width: 100%;
+			padding-left: 35px;
+		}
+
 		text-decoration: underline;
 		font-size: 10px;
 		color: $green;
@@ -825,20 +1027,52 @@ input[type="radio"].full {
 		padding: 5% 0;
 	}
 
+	@include r(767) {
+		padding: 13% 0;
+		overflow: hidden;
+	}
+
 	padding: 100px 0;
 
+	.swiper-slide {
+		@include r(767) {
+			flex-shrink: 0;
+		}
+
+		flex-shrink: 1;
+	}
+
+	.container {
+		@include r(767) {
+			padding: 0;
+		}
+	}
+
 	&__list {
+		@include r(767) {
+			overflow: hidden;
+			padding: 20px 20px 0;
+			margin-top: -11px;
+			margin-bottom: 12px;
+			margin-left: 0;
+		}
+
 		display: flex;
 		flex-wrap: wrap;
 		margin: 29px -15px;
+		overflow: visible;
 	}
 
 	&__item {
-		@include r(1023) {
-			padding: 10px 20px;
+		@include r(1279) {
+			padding: 10px 22px;
 		}
 
-		width: calc(33.3333% - 30px);
+		@include r(767) {
+			margin-right: 0;
+			margin-left: 0;
+		}
+
 		margin: 0 15px 22px;
 		display: flex;
 		align-items: center;
@@ -873,6 +1107,9 @@ input[type="radio"].full {
 		}
 
 		span {
+			@include r(1023) {
+				font-size: 12px;
+			}
 			position: relative;
 			z-index: 1;
 			transition: $trans;
@@ -881,8 +1118,12 @@ input[type="radio"].full {
 		.icon {
 			@include r(1023) {
 				flex-shrink: 0;
-				font-size: 15px;
+				font-size: 10px;
 				margin-right: 15px;
+			}
+
+			@include r(767) {
+				font-size: 15px;
 			}
 
 			position: relative;
@@ -900,12 +1141,20 @@ input[type="radio"].full {
 	justify-content: center;
 
 	.btn {
+		@include r(767) {
+			padding: 16px 25px;
+		}
+
 		font-weight: bold;
 		padding: 21px 47px;
 	}
 }
 
 .contacts {
+	@include r(767) {
+		display: none;
+	}
+
 	position: fixed;
 	right: 0;
 	top: 50%;
@@ -976,6 +1225,11 @@ input[type="radio"].full {
 			padding-left: 10%;
 			margin-bottom: 40px;
 		}
+
+		@include r(767) {
+			padding-left: 0;
+			margin-bottom: 12px;
+		}
 	}
 
 	img {
@@ -983,16 +1237,32 @@ input[type="radio"].full {
 			width: 40%;
 		}
 
+		@include r(767) {
+			width: 100%;
+		}
+
 		pointer-events: none;
 		user-select: none
 	}
 
 	h2 {
+		@include r(767) {
+			padding: 0 20px;
+			line-height: 130%;
+			margin-bottom: 9px;
+		}
+
 		margin-bottom: 42px;
 		line-height: 146%;
 	}
 
 	&__item {
+		@include r(767) {
+			padding-left: 0;
+			margin-bottom: 9px;
+			padding-right: 10px;
+		}
+
 		display: flex;
 		align-items: flex-start;
 		padding-left: 38px;
@@ -1000,6 +1270,10 @@ input[type="radio"].full {
 		position: relative;
 
 		&::before {
+			@include r(767) {
+				display: none;
+			}
+
 			content: '';
 			position: absolute;
 			left: 75px;
@@ -1023,6 +1297,10 @@ input[type="radio"].full {
 	}
 
 	&__number {
+		@include r(767) {
+			display: none;
+		}
+
 		background: #F5F9FA;
 		border: 6px solid #FFFFFF;
 		width: 80px;
@@ -1040,6 +1318,12 @@ input[type="radio"].full {
 	}
 
 	&__title {
+		@include r(767) {
+			font-size: 16px;
+			line-height: 22px;
+			margin-bottom: 17px;
+		}
+
 		margin-bottom: 19px;
 	}
 
@@ -1049,6 +1333,10 @@ input[type="radio"].full {
 }
 
 .marketologs {
+	@include r(767) {
+		padding-top: 12.5%;
+	}
+
 	padding: 7.5% 0 8.5%;
 
 	h2 {
@@ -1081,16 +1369,28 @@ input[type="radio"].full {
 }
 
 .marketolog {
+	@include r(767) {
+		padding: 11px;
+	}
+
 	border-top: 10px solid $green;
 	padding: 19px;
 	background: #fff;
 
 	.icon {
+		@include r(767) {
+			font-size: 6px;
+		}
+
 		font-size: 7px;
 		fill: $green;
 	}
 
 	&__header {
+		@include r(767) {
+			margin-bottom: 4px;
+		}
+
 		display: flex;
 		margin-bottom: 18px;
 	}
@@ -1100,6 +1400,10 @@ input[type="radio"].full {
 		margin-top: -4px;
 
 		&-top {
+			@include r(767) {
+				margin-bottom: 3px;
+			}
+
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -1108,15 +1412,34 @@ input[type="radio"].full {
 	}
 
 	&__photo {
+		@include r(767) {
+			margin-right: 15px;
+
+			img {
+				width: 80px;
+			}
+		}
+
 		margin-right: 20px;
 	}
 
 	&__name {
+		@include r(767) {
+			font-size: 16px;
+		}
+
 		font-weight: bold;
 		font-size: 20px;
 	}
 
 	&__rating {
+		@include r(767) {
+			margin-bottom: 0;
+			margin-right: 13px;
+			margin-top: 0;
+			font-size: 14px;
+		}
+
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
@@ -1128,7 +1451,22 @@ input[type="radio"].full {
 		}
 	}
 
+	&__statusbar {
+		@include r(767) {
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+		}
+	}
+
 	&__status {
+		@include r(767) {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 9px;
+		}
+
 		display: flex;
 		align-items: center;
 		border-top: 1px solid #D5D6D8;
@@ -1153,6 +1491,12 @@ input[type="radio"].full {
 		}
 
 		&-indicator {
+			@include r(767) {
+				width: 9px;
+				height: 9px;
+				border: 3px solid transparent;
+			}
+
 			width: 12px;
 			height: 12px;
 			border-radius: 50%;
@@ -1162,6 +1506,11 @@ input[type="radio"].full {
 	}
 
 	&__specialization {
+		@include r(767) {
+			font-size: 9px;
+			margin-bottom: 7px;
+		}
+
 		color: #4F4F4F;
 		font-weight: bold;
 		font-size: 12px;
@@ -1169,10 +1518,19 @@ input[type="radio"].full {
 	}
 
 	&__features {
+		@include r(767) {
+			display: block;
+		}
+
 		display: flex;
 		align-items: center;
 
 		&-item {
+			@include r(767) {
+				font-size: 9px;
+				margin-bottom: 5px;
+			}
+
 			display: flex;
 			align-items: center;
 			color: #4F4F4F;
@@ -1185,6 +1543,10 @@ input[type="radio"].full {
 			}
 
 			.icon {
+				@include r(767) {
+					font-size: 6px;
+				}
+
 				margin-right: 8px;
 				fill: #D5D6D8
 			}
@@ -1192,6 +1554,11 @@ input[type="radio"].full {
 	}
 
 	&__online {
+		@include r(767) {
+			font-size: 9px;
+			margin-bottom: 11px;
+		}
+
 		font-weight: 500;
 		font-size: 12px;
 		color: #828282;
@@ -1206,6 +1573,10 @@ input[type="radio"].full {
 
 	&__table {
 		&-title {
+			@include r(767) {
+				margin-bottom: 11px;
+			}
+
 			font-weight: bold;
 			margin-bottom: 6px;
 		}
@@ -1219,6 +1590,10 @@ input[type="radio"].full {
 		}
 
 		&-text {
+			@include r(767) {
+				font-size: 10px;
+			}
+
 			font-size: 12px;
 			letter-spacing: -0.01em;
 			background: #fff;
@@ -1232,6 +1607,10 @@ input[type="radio"].full {
 		}
 
 		&-more {
+			@include r(767) {
+				font-size: 10px;
+			}
+
 			color: $blue;
 			font-size: 12px;
 			margin-top: 11px;
@@ -1240,6 +1619,13 @@ input[type="radio"].full {
 	}
 
 	&__footer {
+		@include r(767) {
+			margin-top: 9px;
+			padding-top: 10px;
+			padding-bottom: 55px;
+			position: relative;
+		}
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -1260,6 +1646,10 @@ input[type="radio"].full {
 			@include r(1023) {
 				margin-right: 15px;
 			}
+
+			@include r(767) {
+				font-size: 9px;
+			}
 			
 			display: flex;
 			align-items: center;
@@ -1278,6 +1668,15 @@ input[type="radio"].full {
 		}
 
 		.btn {
+			@include r(767) {
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translateX(-50%);
+				font-size: 10px;
+				white-space: nowrap;
+			}
+
 			font-weight: bold;
 			font-size: 12px;
 		}
@@ -1294,6 +1693,7 @@ input[type="radio"].full {
 	h2 {
 		@include r(1023) {
 			text-align: center;
+			margin-bottom: 26px;
 		}
 
 		white-space: nowrap;
@@ -1306,6 +1706,10 @@ input[type="radio"].full {
 				display: none;
 			}
 		}
+
+		@include r(767) {
+			padding: 0 10px;
+		}
 	}
 
 	.container {
@@ -1313,10 +1717,19 @@ input[type="radio"].full {
 			display: block;
 		}
 
+		@include r(767) {
+			padding: 0;
+		}
+
 		display: flex;
 	}
 
 	.btn {
+		@include r(767) {
+			font-size: 12px;
+			padding: 16px 14px;
+		}
+
 		margin-top: 15px;
 		font-weight: bold;
 		font-size: 14px;
@@ -1327,6 +1740,11 @@ input[type="radio"].full {
 		@include r(1023) {
 			text-align: center;
 			margin-bottom: 20px;
+		}
+
+		@include r(767) {
+			margin-bottom: 28px;
+			padding: 28px 20px 0;
 		}
 
 		padding-top: 25px;
@@ -1341,9 +1759,16 @@ input[type="radio"].full {
 			margin: 0;
 		}
 
+		@include r(767) {
+			overflow: hidden;
+			padding-bottom: 20px;
+			padding: 0 20px 20px;
+		}
+
 		margin-left: 92px;
 		display: flex;
 		justify-content: space-between;
+		overflow: visible;
 	}
 
 	&__item {
@@ -1351,7 +1776,13 @@ input[type="radio"].full {
 			margin: 0 8px;
 		}
 
+		@include r(767) {
+			margin: 0;
+			flex-shrink: 0;
+		}
+
 		margin: 0 15px;
+		flex-shrink: 1;
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 	}
 
@@ -1366,6 +1797,10 @@ input[type="radio"].full {
 	}
 
 	&__desc {
+		@include r(767) {
+			padding: 23px 10px 48px;
+		}
+
 		text-align: center;
 		padding: 26px 10px 48px;
 
@@ -1381,12 +1816,20 @@ input[type="radio"].full {
 	}
 
 	&__title {
+		@include r(767) {
+			font-size: 16px;
+		}
+
 		font-weight: bold;
 		font-size: 18px;
 		position: relative;
 		margin-bottom: 22px;
 
 		&::before {
+			@include r(767) {
+				bottom: -13px;
+			}
+
 			content: '';
 			position: absolute;
 			left: 50%;
@@ -1400,6 +1843,10 @@ input[type="radio"].full {
 }
 
 .business {
+	@include r(767) {
+		padding: 16% 0;
+	}
+
 	padding: 8% 0;
 
 	&.gray-bg {
@@ -1409,9 +1856,31 @@ input[type="radio"].full {
 	}
 
 	&.big {
+		@include r(767) {
+			overflow: hidden;
+
+			.business__list {
+				padding-left: 0;
+			}
+
+			img.app {
+				width: 131% !important;
+				position: relative;
+				left: -44px;
+				margin-top: -10px;
+				transform: rotate(19deg);
+				margin-bottom: 40px;
+			}
+		}
+
 		padding-bottom: 4.5%;
 
 		p {
+			@include r(767) {
+				font-size: 14px;
+				padding-left: 40px;
+			}
+
 			font-size: 18px;
 			padding-left: 40px;
 
@@ -1422,6 +1891,11 @@ input[type="radio"].full {
 	}
 
 	h1 {
+		@include r(767) {
+			margin-bottom: 21px;
+			text-align: center;
+		}
+
 		margin-bottom: 26px;
 	}
 
@@ -1444,6 +1918,10 @@ input[type="radio"].full {
 					text-align: center;
 
 					img {
+						@include r(767) {
+							width: 100%;
+						}
+
 						width: 60%;
 					}
 				}
@@ -1453,6 +1931,12 @@ input[type="radio"].full {
 
 			& + .business__content {
 				padding-left: 11.7%;
+
+				.business__list {
+					@include r(767) {
+						padding-left: 42px;
+					}
+				}
 
 				p {
 					@include r(1279) {
@@ -1473,14 +1957,28 @@ input[type="radio"].full {
 			padding-left: 0 !important;
 			margin-bottom: 80px;
 		}
+
+		@include r(767) {
+			margin-bottom: 40px;
+		}
 	}
 
 	h2 {
+		@include r(767) {
+			margin-bottom: 25px;
+		}
+
 		margin-top: 0;
 		margin-bottom: 31px;
 	}
 
 	&__title {
+		@include r(767) {
+			font-size: 16px;
+			padding-left: 42px;
+			margin-bottom: 14px;
+		}
+
 		font-weight: bold;
 		font-size: 18px;
 		margin-bottom: 19px;
@@ -1492,12 +1990,18 @@ input[type="radio"].full {
 			padding-left: 40px;
 		}
 
+		@include r(767) {
+			padding-left: 20px;
+			margin-bottom: 21px;
+		}
+
 		margin-bottom: 32px;
 	}
 
 	p {
 		@include r(1279) {
 			padding-left: 20px;
+			margin-bottom: 15px;
 		}
 
 		position: relative;
@@ -1506,6 +2010,13 @@ input[type="radio"].full {
 		&::before {
 			@include r(1279) {
 				left: -10px;
+			}
+
+			@include r(767) {
+				width: 20px;
+				transform: none;
+				top: 10px;
+				height: 2px;
 			}
 
 			content: '';
@@ -1524,10 +2035,21 @@ input[type="radio"].full {
 	}
 
 	.question {
+		@include r(767) {
+			margin-bottom: 30px;
+		}
+
 		margin-bottom: 34px;
 	}
 
 	.btn {
+		@include r(767) {
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 16px 24px;
+		}
+
 		font-weight: bold;
 		padding: 22px 48px;
 	}
@@ -1536,7 +2058,19 @@ input[type="radio"].full {
 		display: flex;
 		align-items: center;
 
+		img {
+			@include r(767) {
+				width: 103px;
+			}
+		}
+
 		svg {
+			@include r(767) {
+				margin: 0 13px;
+				flex-shrink: 0;
+				font-size: 16px;
+			}
+
 			margin: 0 40px;
 			fill: $gray;
 		}
@@ -1544,6 +2078,11 @@ input[type="radio"].full {
 }
 
 .question {
+	@include r(767) {
+		line-height: 128.4%;
+		padding: 15px 30px;
+	}
+
 	background: #fff;
 	display: flex;
 	align-items: center;
@@ -1565,6 +2104,10 @@ input[type="radio"].full {
 	}
 
 	h2 {
+		@include r(767) {
+			margin-bottom: 25px;
+		}
+
 		margin-bottom: 29px;
 	}
 
@@ -1572,6 +2115,10 @@ input[type="radio"].full {
 		@include r(1023) {
 			padding: 0;
 			border: 0;
+		}
+
+		@include r(767) {
+			flex-direction: column;
 		}
 
 		display: flex;
@@ -1582,6 +2129,12 @@ input[type="radio"].full {
 	&__item {
 		@include r(1023) {
 			margin-right: 20px;
+			margin-bottom: 16px;
+		}
+
+		@include r(767) {
+			margin-right: 0;
+			width: 100%;
 		}
 
 		text-align: center;
@@ -1592,17 +2145,31 @@ input[type="radio"].full {
 	}
 
 	&__header {
+		@include r(767) {
+			padding: 29px 0 26px;
+		}
+
 		background: $green;
 		color: #fff;
 		padding: 17px 0 22px;
 	}
 
 	&__date {
+		@include r(767) {
+			font-size: 16px;
+			margin-bottom: 25px;
+		}
+
 		font-size: 18px;
 		margin-bottom: 51px;
 	}
 
 	&__name {
+		@include r(767) {
+			font-size: 18px;
+			margin-bottom: 19px;
+		}
+
 		font-weight: bold;
 		font-size: 20px;
 		line-height: 130%;
@@ -1611,7 +2178,18 @@ input[type="radio"].full {
 	}
 
 	&__links {
+		@include r(767) {
+			span {
+				display: none;
+			}
+		}
+
 		a {
+			@include r(767) {
+				display: block;
+				margin-bottom: 2px;
+			}
+
 			text-decoration: underline;
 
 			&:hover {
@@ -1621,10 +2199,18 @@ input[type="radio"].full {
 	}
 
 	&__body {
+		@include r(767) {
+			padding: 31px 0 10px
+		}
+
 		padding: 41px 0 14px;
 	}
 
 	&__price {
+		@include r(767) {
+			font-size: 16px;
+		}
+
 		text-transform: uppercase;
 		font-size: 18px;
 		margin-bottom: 28px;
@@ -1634,6 +2220,10 @@ input[type="radio"].full {
 		}
 
 		&-old {
+			@include r(767) {
+				font-size: 12px;
+			}
+
 			margin-top: -28px;
 			font-size: 14px;
 			position: relative;
@@ -1653,11 +2243,19 @@ input[type="radio"].full {
 	}
 
 	&__sale {
+		@include r(767) {
+			font-size: 10px;
+		}
+
 		color: $green;
 		font-size: 12px;
 	}
 
 	.form {
+		@include r(767) {
+			padding: 30px 27px;
+		}
+
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 		color: #fff;
 		background: $blue;
@@ -1720,9 +2318,18 @@ input[type="radio"].full {
 }
 
 .features {
+	@include r(767) {
+		padding: 11.8% 0 1%;
+	}
+
 	padding: 6.8% 0 1%;
 
 	.subtitle {
+		@include r(767) {
+			font-size: 12px;
+			margin-bottom: 16px;
+		}
+
 		font-size: 14px;
 		margin-top: 22px;
 		margin-bottom: 48px;
@@ -1739,9 +2346,21 @@ input[type="radio"].full {
 			width: 50%;
 		}
 
+		@include r(767) {
+			width: 100%;
+		}
+
+		@include r(767) {
+			margin-bottom: 4px;
+		}
+
 		margin-bottom: 55px;
 
 		.icon {
+			@include r(767) {
+				font-size: 20px;
+			}
+
 			fill: $green;
 			font-size: 25px;
 			margin-bottom: 11px;
@@ -1749,6 +2368,10 @@ input[type="radio"].full {
 	}
 
 	&__title {
+		@include r(767) {
+			margin-bottom: 10px;
+		}
+		
 		font-weight: bold;
 		margin-bottom: 16px;
 		line-height: 134.9%;
@@ -1756,6 +2379,10 @@ input[type="radio"].full {
 }
 
 .start {
+	@include r(767) {
+		padding: 12% 0;
+	}
+
 	padding: 2% 0;
 
 	img {
@@ -1785,20 +2412,38 @@ input[type="radio"].full {
 	}
 
 	h2 {
+		@include r(767) {
+			padding: 0 10px;
+			margin-bottom: 23px;
+		}
+
 		margin-top: -7px;
 		margin-bottom: 18px;
 	}
 
 	form {
+		@include r(767) {
+			margin-bottom: 32px;
+		}
+
 		display: flex;
 		margin-bottom: 48px;
 
 		.form-group {
+			@include r(767) {
+				margin-right: -1px;
+			}
+
 			margin-right: 16px;
 		}
 	}
 
 	&__item {
+		@include r(767) {
+			margin-bottom: 11px;
+			width: 100%;
+		}
+
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 		display: flex;
 		align-items: center;
@@ -1807,6 +2452,11 @@ input[type="radio"].full {
 		width: 96%;
 
 		span {
+			@include r(767) {
+				font-size: 53px;
+				margin-right: 34px;
+			}
+
 			font-weight: 800;
 			color: $light-gray;
 			display: inline-block;
@@ -1816,17 +2466,33 @@ input[type="radio"].full {
 	}
 
 	p {
+		@include r(767) {
+			margin-top: 26px;
+			margin-bottom: 31px;
+		}
+
 		margin-top: 42px;
 		margin-bottom: 40px;
 	}
 
 	.btn {
+		@include r(767) {
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 16px 25px;
+		}
+
 		padding: 22px 48px;
 		font-weight: bold;
 	}
 }
 
 .reviews {
+	@include r(767) {
+		display: none;
+	}
+
 	padding: 5% 0;
 
 	.container {
@@ -1884,6 +2550,11 @@ input[type="radio"].full {
 	padding: 2% 0 8%;
 
 	.subtitle {
+		@include r(767) {
+			font-size: 12px;
+			margin-top: 16px;
+		}
+
 		font-size: 14px;
 		margin-top: 23px;
 		margin-bottom: 32px;
@@ -1906,6 +2577,12 @@ input[type="radio"].full {
 			}
 		}
 
+		@include r(767) {
+			width: 50%;
+			border: 0;
+			padding: 0;
+		}
+
 		width: 100%;
 		text-align: center;
 		border-right: 1px solid #D5D6D8;
@@ -1916,6 +2593,10 @@ input[type="radio"].full {
 		}
 
 		img {
+			@include r(767) {
+				max-height: 23px;
+			}
+
 			display: block;
 			position: absolute;
 			left: 50%;
@@ -1926,6 +2607,10 @@ input[type="radio"].full {
 		}
 
 		a {
+			@include r(767) {
+				margin-bottom: 0;
+			}
+
 			display: block;
 			position: relative;
 			width: 100%;
@@ -1962,6 +2647,15 @@ input[type="radio"].full {
 			}
 		}
 
+		@include r(767) {
+			flex-direction: column;
+
+			img {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+
 		display: flex;
 		justify-content: space-between;
 		padding: 0 5%;
@@ -1969,11 +2663,22 @@ input[type="radio"].full {
 }
 
 .footer {
+	@include r(767) {
+		padding: 49px 0;
+	}
+
 	background: $ftr2;
 	padding: 40px 0;
 	color: #fff;
 
 	.container {
+		@include r(767) {
+			overflow: hidden;
+			align-items: center;
+			flex-direction: column;
+			text-align: center;
+		}
+
 		display: flex;
 		justify-content: space-between;
 
@@ -1986,11 +2691,19 @@ input[type="radio"].full {
 				padding-left: 40px;
 			}
 
+			@include r(767) {
+				text-align: center;
+			}
+
 			width: 100%;
 			padding-left: 90px;
 			position: relative;
 
 			&::before {
+				@include r(767) {
+					display: none;
+				}
+
 				content: '';
 				position: absolute;
 				top: 0;
@@ -2015,17 +2728,30 @@ input[type="radio"].full {
 	}
 
 	&__logo {
+		@include r(767) {
+			width: 142px;
+			margin-bottom: 7px;
+		}
+
 		margin-bottom: 19px;
 		pointer-events: none;
 		user-select: none
 	}
 
 	&__title {
+		@include r(767) {
+			display: none;
+		}
+
 		font-weight: bold;
 		margin-bottom: 5px;
 	}
 
 	&__list {
+		@include r(767) {
+			display: none;
+		}
+		
 		margin-bottom: 27px;
 
 		&:last-child {
@@ -2053,6 +2779,12 @@ input[type="radio"].full {
 			}
 		}
 
+		@include r(767) {
+			white-space: normal;
+			text-align: center;
+			padding: 0 54px;
+		}
+
 		margin-top: 80px;
 		white-space: nowrap;
 		text-align: right;
@@ -2068,6 +2800,13 @@ input[type="radio"].full {
 			}
 		}
 
+		@include r(767) {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			width: 185px !important;
+			margin: 0 auto;
+		}
+
 		display: flex;
 		align-items: center;
 		margin-top: 26px;
@@ -2076,6 +2815,10 @@ input[type="radio"].full {
 		a {
 			@include r(1023) {
 				margin-right: 12px;
+			}
+
+			@include r(767) {
+				margin: 0 5px 10px;
 			}
 
 			margin-right: 25px;
@@ -2093,16 +2836,43 @@ input[type="radio"].full {
 }
 
 .copyright {
+	@include r(767) {
+		padding-bottom: 0;
+	}
+
 	padding: 15px 0;
 	background: $ftr;
 	color: #fff;
 
 	.container {
+		@include r(767) {
+			flex-direction: column;
+			text-align: center;
+
+			& > div:first-child {
+				order: 2;
+			}
+
+			& > div:last-child {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				order: 1;
+			}
+		}
+
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 
 		a {
+			@include r(767) {
+				font-size: 10px;
+				margin-left: 0;
+				margin-bottom: 15px;
+				display: block;
+			}
+
 			text-decoration: underline;
 			margin-left: 55px;
 			font-size: 12px;
@@ -2113,6 +2883,129 @@ input[type="radio"].full {
 
 			&:hover {
 				text-decoration: none;
+			}
+		}
+	}
+}
+
+.e404 {
+	@include r(1279) {
+		padding: 8% 0;
+	}
+
+	@include r(767) {
+		padding: 17% 0;
+	}
+
+	padding: 5% 0;
+
+	img {
+		margin-bottom: 60px;
+		pointer-events: none;
+		user-select: none
+	}
+
+	h1 {
+		@include r(767) {
+			padding: 0 5px;
+		}
+	}
+
+	h2 {
+		color: #828282;
+		margin-bottom: 40px;
+	}
+}
+
+.content {
+	padding: 10% 0;
+
+	.container {
+		display: flex;
+	}
+}
+
+.sidebar {
+	width: 76%;
+}
+
+.levels {
+	width: 79%;
+
+	.icon {
+		font-size: 13px;
+		margin-right: 20px;
+
+		&.checkbox {
+			font-size: 9px;
+			fill: $gray !important;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 0;
+		}
+	}
+
+	&__item {
+		padding: 8px 21px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		border-left: 10px solid transparent;
+		margin-bottom: 14px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&.active {
+			border-color: $green;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+			color: $green;
+
+			.icon {
+				fill: $green;
+			}
+		}
+	}
+}
+
+.hello {
+	.content__main {
+		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
+	}
+
+	h3 {
+		margin-bottom: 27px;
+	}
+
+	p {
+		margin-bottom: 25px;
+	}
+
+	&__photo {
+		height: 321px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	&__body {
+		padding: 40px;
+	}
+
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: -5px;
+
+		a:not(.btn) {
+			color: $green;
+			font-weight: 600;
+
+			&:hover {
+				text-decoration: underline;
 			}
 		}
 	}
