@@ -1,5 +1,9 @@
 let main = new Swiper('.main__slider', {
     loop: true,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
     navigation: {
         nextEl: '.main__slider .swiper-button-next',
         prevEl: '.main__slider .swiper-button-prev',
@@ -10,17 +14,32 @@ let main = new Swiper('.main__slider', {
     },
 });
 
+$('body').on('mouseover', '.main', () => {
+    main.autoplay.stop();
+});
+
+$('body').on('mouseleave', '.main', () => {
+    main.autoplay.start();
+});
+
 let reviews = new Swiper('.reviews__slider', {
     slidesPerView: 4,
     spaceBetween: 30,
     slidesPerGroup: 4,
     loop: true,
     loopFillGroupWithBlank: true,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
     navigation: {
         nextEl: '.reviews__slider .swiper-button-next',
         prevEl: '.reviews__slider .swiper-button-prev',
     },
     breakpoints: {
+        1024: {
+            slidesPerView: 4,
+        },
         768: {
             slidesPerView: 3,
         }
@@ -110,15 +129,17 @@ let changeView = () => {
                 $(i).find('.marketolog__info-top').append($(i).find($('.marketolog__statusbar')));
             });
 
-            caseSlider.destroy();
-            service.destroy();
+            if ($('.case__list').length > 0) { caseSlider.destroy(); }
+            if ($('.service__list').length > 0) { service.destroy(); }
         }
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
         $('.header__menu img').remove();
-        find.destroy();
-        caseSlider.destroy();
-        service.destroy();
+        
+        if ($('.find__list').length > 0) { find.destroy(); }
+        if ($('.case__list').length > 0) { caseSlider.destroy(); }
+        if ($('.service__list').length > 0) { service.destroy(); }
+        
         $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile p'));
         $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile .footer__social'));
         $('.footer .container.mobile').remove();
@@ -127,7 +148,10 @@ let changeView = () => {
 
 if ($(window).width() <= 1023) {
     changeView();
-    find.init();
+    
+    if ($('.find__list').length > 0) {
+        find.init();
+    }
 }
 
 $(window).on('resize', changeView);
