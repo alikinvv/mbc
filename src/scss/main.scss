@@ -4525,6 +4525,110 @@ textarea {
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 23px;
+
+		&.user {
+			border-top: 1px solid #D5D6D8;
+			border-bottom: 1px solid #D5D6D8;
+			padding: 13px 0;
+			margin-bottom: 31px;
+
+			& + .project__text {
+				@include r(767) {
+					padding-left: 0;
+				}
+
+				padding-left: 84px;
+			}
+		}
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		margin-bottom: 6px;
+	}
+
+	&__user {
+		display: flex;
+		align-items: center;
+		width: 100%;
+
+		&-info {
+			width: 100%;
+		}
+
+		&-photo {
+			width: 60px;
+			margin-right: 22px;
+		}
+
+		&-name {
+			font-weight: bold;
+		}
+
+		&-reviews {
+			@include r(767) {
+				font-size: 9px;
+			}
+
+			font-size: 12px;
+			margin-bottom: 6px;
+
+			.positive {
+				color: $green;
+			}
+
+			.negative {
+				color: $red;
+			}
+
+			a {
+				transition: $trans;
+
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+		}
+
+		&-registration {
+			@include r(767) {
+				font-size: 9px;
+			}
+
+			font-size: 12px;
+		}
+	}
+
+	&__time {
+		@include r(767) {
+			padding-left: 0;
+		}
+
+		padding-left: 87px;
+		margin-top: 32px;
+
+		p {
+			font-size: 12px;
+			font-weight: bold;
+			margin-bottom: 3px;
+		}
+
+		span {
+			display: block;
+			font-size: 12px;
+			margin-bottom: 34px;
+		}
+
+		.btn {
+			@include r(767) {
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
 	}
 
 	&__bottom {
