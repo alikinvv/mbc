@@ -124,6 +124,14 @@ let changeView = () => {
                 spaceBetween: 18,
                 loopFillGroupWithBlank: true,
             });
+
+            if ($('.blog__category a').length > 5) {
+                for (let i = 6; i <= $('.blog__category a').length; i++) {
+                    $(`.blog__category a:nth-child(${i})`).addClass('hide');
+                }
+
+                $('.blog__category').append('<a href="javascript:void(0)" class="blog__category-more">Все теги</a>');
+            }
         } else {
             $('.marketolog').each((el, i) => {
                 $(i).find('.marketolog__info-top').append($(i).find($('.marketolog__statusbar')));
@@ -131,6 +139,9 @@ let changeView = () => {
 
             if ($('.case__list').length > 0) { caseSlider.destroy(); }
             if ($('.service__list').length > 0) { service.destroy(); }
+
+            $('.blog__category-more').remove();
+            $('.blog__category a').removeClass('hide');
         }
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
@@ -165,4 +176,28 @@ $('body').on('click', '.hamburger', (e) => {
 $('body').on('click', '.close-menu', () => {
     $('.hamburger').toggleClass('active');
     $('.header__menu').toggleClass('active');
+});
+
+$('body').on('click', '.show-password', (e) => {
+    $(e.currentTarget).toggleClass('active');
+
+    if ($(e.currentTarget).hasClass('active')) {
+        $(e.currentTarget).parent().find('input').attr('type', 'text');
+    } else {
+        $(e.currentTarget).parent().find('input').attr('type', 'password');
+    }
+});
+
+$('body').on('click', 'select', (e) => {
+    $(e.currentTarget).parent().toggleClass('active');
+});
+
+$('body').on('blur', 'select', (e) => {
+    if ( $(e.currentTarget).parent().hasClass('active')) {
+        $(e.currentTarget).parent().toggleClass('active');
+    }
+});
+
+$('body').on('click', '.remove-row', (e) => {
+    $(e.currentTarget).closest('.content__table-row').slideUp();
 });
