@@ -212,6 +212,9 @@ let changeView = () => {
 
                 $('.blog__category').append('<a href="javascript:void(0)" class="blog__category-more">Все теги</a>');
             }
+
+            $('.services .content__main').prepend('<div class="filter__toggle">Фильтр <svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-filter"></use></svg></div>');
+            $('.services').append($('.filter'));
         } else {
             $('.marketolog').each((el, i) => {
                 $(i).find('.marketolog__info-top').append($(i).find($('.marketolog__statusbar')));
@@ -222,6 +225,8 @@ let changeView = () => {
 
             $('.blog__category-more').remove();
             $('.blog__category a').removeClass('hide');
+            $('.filter__toggle').remove();
+            $('.services .sidebar').append($('.filter'));
         }
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
@@ -280,4 +285,14 @@ $('body').on('blur', 'select', (e) => {
 
 $('body').on('click', '.remove-row', (e) => {
     $(e.currentTarget).closest('.content__table-row').slideUp();
+});
+
+$('body').on('click', '.filter__toggle', (e) => {
+    $('.filter').toggleClass('active');
+    $('html, body').toggleClass('overflow');
+});
+
+$('body').on('click', '.filter__close', (e) => {
+    $('.filter').removeClass('active');
+    $('html, body').removeClass('overflow');
 });

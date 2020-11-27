@@ -5151,12 +5151,21 @@ textarea {
 }
 
 .banner {
+	@include r(767) {
+		height: 395px;
+		margin-bottom: 13px;
+	}
+
 	height: 409px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 
 	.container {
+		@include r(767) {
+			align-items: flex-start;
+		}
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -5166,6 +5175,13 @@ textarea {
 	}
 
 	&__title {
+		@include r(767) {
+			text-align: center;
+			font-size: 18px;
+			line-height: 130%;
+			margin-bottom: 22px;
+		}
+
 		text-transform: uppercase;
 		font-weight: bold;
 		font-size: 24px;
@@ -5173,13 +5189,26 @@ textarea {
 	}
 
 	&__features {
+		@include r(767) {
+			display: block;
+		}
+
 		display: flex;
 	}
 
 	&__col {
+		@include r(767) {
+			margin: 0;
+			padding-left: 20px;
+		}
+
 		margin: 0 50px;
 
 		& > div {
+			@include r(767) {
+				margin-bottom: 15px;
+			}
+
 			margin-bottom: 9px;
 			position: relative;
 
@@ -5202,22 +5231,119 @@ textarea {
 	}
 }
 
-.service {
+.services {
+	@include r(767) {
+		margin-bottom: 42px;
+	}
+
 	margin-bottom: 61px;
 	padding: 2% 0;
 
 	.breadcrumbs {
+		@include r(767) {
+			margin-bottom: 38px;
+		}
+
 		margin-bottom: 42px;
 	}
 
 	h2 {
+		@include r(767) {
+			margin-bottom: 25px;
+		}
+
 		margin-bottom: 50px;
 	}
 
 	.filter {
+		@include r(767) {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #fff;
+			margin: 0;
+			overflow-y: auto;
+			z-index: 5;
+			opacity: 0;
+			pointer-events: none;
+			user-select: none;
+			-webkit-overflow-scrolling: touch;
+			padding: 0 20px 20px;
+			transition: $trans;
+		}
+
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 		margin-right: 30px;
 		padding: 40px 30px;
+
+		&__toggle {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			width: 100%;
+			font-weight: bold;
+			font-size: 12px;
+			margin-bottom: 23px;
+
+			.icon {
+				margin-left: 11px;
+				font-size: 10px;
+			}
+		}
+
+		&.active {
+			opacity: 1;
+			pointer-events: all;
+			user-select: normal;
+		}
+
+		&__header {
+			@include r(767) {
+				display: flex;
+			}
+
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid #D5D6D8;
+			padding: 12px 20px 7px;
+			font-weight: bold;
+			font-size: 12px;
+			margin-bottom: 15px;
+			display: none;
+			margin-left: -20px;
+			margin-right: -20px;
+
+			.icon {
+				font-size: 7px;
+				fill: #4F4F4F;
+			}
+		}
+
+		&__close {
+			width: 20px;
+			height: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 6px;
+		}
+
+		input[type=radio].full + label {
+			@include r(767) {
+				padding: 10px 21px;
+			}
+		}
+
+		.content__flex {
+			.form-group {
+				@include r(767) {
+					width: auto;
+					margin-right: 10px;
+				}
+			}
+		}
 	}
 
 	.content__main {
@@ -5229,6 +5355,14 @@ textarea {
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 
 		& + .btn {
+			@include r(767) {
+				margin-top: 9px;
+				padding: 16px 27px;
+				position: relative;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
 			margin-top: 30px;
 			font-weight: bold;
 			padding: 22px 48px;
@@ -5298,6 +5432,10 @@ textarea {
 		margin-bottom: 0;
 
 		.btn {
+			@include r(767) {
+				padding: 16px 0;
+			}
+
 			width: 228px;
 			padding: 22px 0;
 			text-align: center;
@@ -5311,18 +5449,38 @@ textarea {
 }
 
 .text {
+	@include r(767) {
+		margin-bottom: 54px;
+	}
+
 	margin-bottom: 113px;
 
 	h2 {
 		margin-bottom: 40px;
 	}
+
+	p {
+		@include r(767) {
+			line-height: 185.9%;
+		}
+	}
 }
 
 .order {
+	@include r(767) {
+		flex-direction: column;
+		height: auto;
+	}
+
 	height: 580px;
 	display: flex;
 
 	&__img {
+		@include r(767) {
+			height: 310px;
+			width: 100%;
+		}
+
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -5331,6 +5489,11 @@ textarea {
 	}
 
 	&__content {
+		@include r(767) {
+			width: 100%;
+			padding: 20px 20px;
+		}
+
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
@@ -5343,12 +5506,27 @@ textarea {
 	}
 
 	&__title {
+		@include r(767) {
+			font-size: 18px;
+			text-align: center;
+			line-height: 130%;
+		}
+
 		font-weight: bold;
 		font-size: 24px;
 		margin-bottom: 30px;
 	}
 
 	&__text {
+		@include r(767) {
+			font-size: 16px;
+			line-height: 133.4%;
+
+			br {
+				display: none;
+			}
+		}
+
 		font-size: 16px;
 		margin-bottom: 40px;
 		line-height: 133.4%;
@@ -5356,5 +5534,6 @@ textarea {
 
 	.btn {
 		padding: 21px 48px;
+		font-weight: bold;
 	}
 }
