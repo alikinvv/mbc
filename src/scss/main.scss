@@ -4258,6 +4258,11 @@ textarea {
 		}
 
 		&-photo {
+			@include r(767) {
+				height: 0;
+				padding-bottom: 56%;
+			}
+			
 			height: 150px;
 			background-size: cover;
 			background-position: center;
@@ -5627,7 +5632,8 @@ textarea {
 .photo-slider {
 	.swiper-slide {
 		@include r(767) {
-			height: 200px;
+			height: 0;
+			padding-bottom: 68%;
 		}
 
 		background-size: cover;
