@@ -54,7 +54,7 @@ gulp.task('js:dev', function() {
         .pipe(browserSync.reload({
             stream: true
         }))
-        .pipe(babel({presets: ['@babel/preset-env'] })) 
+        // .pipe(babel({presets: ['@babel/preset-env'] })) 
         .pipe(gulp.dest('build/js'));
 });
 
