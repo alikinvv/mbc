@@ -154,7 +154,7 @@ ol {
 		margin-bottom: 15px;
 	}
 
-	padding-left: 30px;
+	padding-left: 26px;
 	margin-bottom: 36px;
 
 	li {
@@ -178,7 +178,7 @@ ul {
 		margin-bottom: 15px;
 	}
 
-	padding-left: 30px;
+	padding-left: 26px;
 	margin-bottom: 36px;
 	
 	li {
@@ -249,6 +249,10 @@ ul {
 	&-white {
 		background: #fff;
 		color: #000;
+
+		&:hover {
+			background: #d4d4d4;
+		}
 	}
 
 	&:focus {
@@ -267,6 +271,7 @@ input[type="radio"].full {
 		}
 	}
 
+	&.active + label,
 	&:checked + label {
 		background: $green;
 		color: #fff;
@@ -336,7 +341,55 @@ input[type="radio"]:not(.full) {
 	}
 }
 
-input[type="checkbox"] {
+input[type="checkbox"].circle {
+	display: none;
+
+	&:checked + label {
+		&::before {
+			border-color: $green;
+		}
+
+		&::after {
+			background: $green;
+		}
+	}
+
+	& + label {
+		display: inline-block;
+		transition: $trans;
+		cursor: pointer;
+		position: relative;
+		margin-bottom: 10px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: -30px;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 2px solid #D5D6D8;
+			transition: $trans;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: -25px;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			transition: $trans;
+			background: transparent;
+		}
+	}
+}
+
+input[type="checkbox"]:not(.circle) {
 	display: none;
 
 	& + label {
@@ -558,6 +611,60 @@ textarea {
 	}
 }
 
+.lk {
+	@include r(767) {
+		width: 25px;
+	}
+
+	width: 31px;
+	height: 28px;
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 51;
+
+	span {
+		width: 100%;
+		height: 4px;
+		background: #000;
+		position: absolute;
+		top: 12px;
+		transition: background .2s ease-in-out .1s;
+		pointer-events: none;
+		user-select: none;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			background: #000;
+			left: 0;
+		}
+
+		&::before {
+			@include r(767) {
+				top: -8px;
+			}
+
+			top: -10px;
+			transition: top .2s ease-in-out .2s, transform .2s ease-in-out;
+		}
+
+		&::after {
+			@include r(767) {
+				bottom: -8px;
+			}
+
+			bottom: -10px;
+			transition: bottom .2s ease-in-out .2s, transform .2s ease-in-out;
+		}
+	}
+}
+
 .container {
 	@include r(1187) {
 		padding: 0 20px;
@@ -686,6 +793,10 @@ textarea {
 			text-decoration: none;
 		}
 
+		&.logged {
+			text-decoration: none;
+		}
+
 		.icon {
 			@include r(767) {
 				margin-right: 0;
@@ -700,6 +811,29 @@ textarea {
 			@include r(1023) {
 				display: none;
 			}
+		}
+
+		&-photo {
+			@include r(767) {
+				height: 24px;
+				width: 24px;
+				margin-right: 0;
+			}
+
+			width: 29px;
+			height: 29px;
+			margin-right: 12px;
+
+			& + div {
+				@include r(767) {
+					display: none;
+				}
+			}
+		}
+
+		&-name {
+			font-weight: 600;
+			margin-bottom: 2px;
 		}
 	}
 
@@ -777,13 +911,19 @@ textarea {
 	
 			a {
 				font-size: 30px !important;
-				margin: 0 0 15px !important;
 				transform: translateX(-60px);
 				transition: $trans;
 				opacity: 0;
 				border-bottom: 1px solid $gray;
+				padding-top: 15px;
 				padding-bottom: 15px;
 				width: 100%;
+				padding-left: 10px;
+
+				&:hover {
+					background: $green;
+					color: #fff;
+				}
 			}
 	
 			img {
@@ -841,13 +981,16 @@ textarea {
 			}
 
 			@include r(1023) {
-				&:nth-child(2) {transition-delay: 100ms;}
-				&:nth-child(3) {transition-delay: 200ms;}
-				&:nth-child(4) {transition-delay: 300ms;}
+				text-decoration: none;
 			}
 
 			margin-right: 23px;
 			font-size: 15px;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
 
 			&:last-child {
 				margin-right: 0;
@@ -903,14 +1046,16 @@ textarea {
 			}
 
 			@include r(1023) {
-				&:nth-child(1) {transition-delay: 400ms;}
-				&:nth-child(2) {transition-delay: 500ms;}
-				&:nth-child(3) {transition-delay: 600ms;}
-				&:nth-child(4) {transition-delay: 700ms;}
+				text-decoration: none;
 			}
 
 			margin-right: 23px;
 			font-size: 15px;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
 
 			&:last-child {
 				margin-right: 0;
@@ -1161,9 +1306,37 @@ textarea {
 	&__item {
 		@include r(1023) {
 			flex-shrink: 0;
+			position: relative;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				right: -15px;
+				width: 3px;
+				height: 31px;
+				background: #ccc;
+				top: 50%;
+			}
+
+			&::before {
+				transform: rotate(30deg) translateY(-50%);
+				margin-top: 3px;
+				margin-right: 15px;
+			}
+
+			&::after {
+				transform: rotate(-30deg) translateY(-50%);
+				margin-top: -23px;
+			}
 		}
 
 		@include r(767) {
+			&::before,
+			&::after {
+				right: 7px;
+			}
+
 			padding: 0;
 			text-align: left;
 			align-items: flex-start;
@@ -1312,9 +1485,14 @@ textarea {
 			padding: 10px 22px;
 		}
 
+		@include r(1023) {
+			min-height: 46px;
+		}
+
 		@include r(767) {
 			margin-right: 0;
 			margin-left: 0;
+			min-height: 50px;
 		}
 
 		margin: 0 15px 22px;
@@ -1324,6 +1502,7 @@ textarea {
 		position: relative;
 		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
 		transition: $trans;
+		min-height: 66px;
 
 		&:hover {
 			span {
@@ -2595,6 +2774,10 @@ textarea {
 		@include r(767) {
 			font-size: 12px;
 			margin-bottom: 16px;
+
+			br {
+				display: none;
+			}
 		}
 
 		font-size: 14px;
@@ -2637,11 +2820,23 @@ textarea {
 	&__title {
 		@include r(767) {
 			margin-bottom: 10px;
+
+			br {
+				display: none;
+			}
 		}
 		
 		font-weight: bold;
 		margin-bottom: 16px;
 		line-height: 134.9%;
+	}
+
+	p {
+		@include r(767) {
+			br {
+				display: none;
+			}
+		}
 	}
 }
 
@@ -2668,11 +2863,16 @@ textarea {
 		}
 
 		display: flex;
+		align-items: flex-start;
 	}
 
 	&__body {
 		@include r(1279) {
 			margin-left: 0;
+		}
+
+		@include r(767) {
+			width: 100%;
 		}
 
 		margin-left: 101px;
@@ -2707,9 +2907,12 @@ textarea {
 	}
 
 	&__item {
+		@include r(1023) {
+			width: 100%;
+		}
+
 		@include r(767) {
 			margin-bottom: 11px;
-			width: 100%;
 		}
 
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
@@ -3030,6 +3233,11 @@ textarea {
 			display: block;
 			margin-bottom: 5px;
 			line-height: 133.4%;
+			transition: $trans;
+
+			&:hover {
+				color: $green;
+			}
 
 			&:last-child {
 				margin-bottom: 0;
@@ -3090,9 +3298,15 @@ textarea {
 			}
 
 			margin-right: 25px;
+			transition: $trans;
 
 			&:last-child {
 				margin-right: 0;
+			}
+
+			&:hover {
+				text-decoration: none;
+				opacity: 0.5;
 			}
 
 			.icon {
@@ -3231,6 +3445,11 @@ textarea {
 	&__flex {
 		display: flex;
 		align-items: center;
+
+		input[type="radio"].full + label + input[type="text"] {
+			padding: 10px 13px;
+			width: 80px;
+		}
 
 		&.full {
 			@include r(767) {
@@ -3487,6 +3706,76 @@ textarea {
 
 	width: 34%;
 	flex-shrink: 0;
+
+	&.show-mobile {
+		@include r(1023) {
+			position: fixed;
+			z-index: 10;
+			background: #fff;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			padding: 0;
+			margin: 0;
+			box-shadow: 0 0 20px rgba(0,0,0,.15);
+			width: 43%;
+			transform: translateX(-100%);
+			transition: $trans;
+			pointer-events: none;
+			user-select: none;
+
+			&.active {
+				transform: translateX(0);
+				pointer-events: all;
+				user-select: normal;
+			}
+
+			.close {
+				position: absolute;
+				top: 67px;
+				left: 20px;
+				height: 30px;
+				width: 30px;
+
+				&::before,
+				&::after {
+					content: '';
+					position: absolute;
+					width: 4px;
+					height: 100%;
+					background: #000;
+					top: 50%;
+					left: 50%;
+				}
+
+				&::before {
+					transform: translate(-50%, -50%) rotate(45deg);
+				}
+
+				&::after {
+					transform: translate(-50%, -50%) rotate(-45deg);
+				}
+			}
+		}
+
+		@include r(767) {
+			width: 90%;
+
+			.levels {
+				margin-top: 90px;
+			}
+
+			.levels__item {
+				margin-bottom: 0;
+			}
+
+			.close {
+				left: 28px;
+			}
+		}
+	}
 }
 
 .levels {
@@ -3524,7 +3813,7 @@ textarea {
 			color: $green;
 
 			.icon {
-				fill: $green;
+				fill: $green !important;
 			}
 		}
 
@@ -3644,6 +3933,7 @@ textarea {
 	table {
 		@include r(1279) {
 			margin-left: 0;
+			width: 100%;
 		}
 
 		@include r(767) {
@@ -3651,7 +3941,7 @@ textarea {
 			margin-right: 20px;
 		}
 
-		width: 100%;
+		width: calc(100% - 96px);
 		border-collapse: collapse;
 		margin-top: 152px;
 		margin-left: 48px;
@@ -3781,6 +4071,12 @@ textarea {
 		color: #828282;
 		font-weight: bold;
 		margin-bottom: 19px;
+		display: inline-block;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	p {
@@ -4029,14 +4325,14 @@ textarea {
 	padding-left: 26px;
 	margin: 54px 0 48px;
 	position: relative;
+	line-height: 152.9%;
 
 	&::before {
 		content: '';
 		position: absolute;
 		left: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		height: 52px;
+		top: -20px;
+		bottom: -20px;
 		width: 3px;
 		background: $green;
 	}
@@ -4106,14 +4402,36 @@ textarea {
 		}
 
 		font-size: 12px;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 11px;
+			height: 1px;
+			background: #000;
+			transition: $trans;
+		}
+
+		&:hover::before {
+			opacity: 0;
+		}
 
 		&::after {
 			content: '/';
 			margin: 0 4px;
 		}
 
-		&:last-child::after {
-			display: none;
+		&:last-child {
+			&::before {
+				right: 0;
+			}
+
+			&::after {
+				display: none;
+			}
 		}
 	}
 }
@@ -4285,6 +4603,9 @@ textarea {
 	height: 370px;
 	background: #C4C4C4;
 	margin-bottom: 16px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
 	&.sm {
 		height: 264px;
@@ -4808,11 +5129,24 @@ textarea {
 		color: $green;
 		font-weight: bold;
 		font-size: 18px;
+		flex-shrink: 0;
 	}
 
 	&__text {
 		line-height: 153%;
 		margin-bottom: 12px;
+
+		a {
+			color: $green;
+			font-size: 14px;
+			text-decoration: underline;
+			display: inline-block;
+			margin-left: 5px;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 
 	&__publ {
@@ -6436,5 +6770,14 @@ textarea {
 				text-decoration: none;
 			}
 		}
+	}
+}
+
+.tab {
+	display: none;
+	width: 100%;
+
+	&.active {
+		display: block;
 	}
 }

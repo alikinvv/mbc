@@ -25,7 +25,6 @@ $('body').on('mouseleave', '.main', () => {
 let reviews = new Swiper('.reviews__slider', {
     slidesPerView: 4,
     spaceBetween: 30,
-    slidesPerGroup: 4,
     loop: true,
     loopFillGroupWithBlank: true,
     autoplay: {
@@ -166,6 +165,11 @@ sameHeight('.service__item');
 let changeView = () => {
     if ($(window).width() <= 1023 && $('.hamburger').length === 0) {
         $('.header__main .container').append('<div class="hamburger"><span></span></div>');
+        if ($('.sidebar.show-mobile').length > 0) {
+            $('.header__main .container').append('<div class="lk"><span></span></div>');
+            $('.sidebar').prepend('<div class="close"></div>');
+        }
+
         $('.header__menu').prepend('<img src="img/logo.png" alt="">');
 
         find = new Swiper('.find__list', {
@@ -230,6 +234,8 @@ let changeView = () => {
         }
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
+        $('.lk').remove();
+        $('.sidebar .close').remove();
         $('.header__menu img').remove();
         
         if ($('.find__list').length > 0) { find.destroy(); }
@@ -258,9 +264,10 @@ $('body').on('click', '.hamburger', (e) => {
     $('html, body').toggleClass('overflow');
 });
 
-$('body').on('click', '.close-menu', () => {
-    $('.hamburger').toggleClass('active');
-    $('.header__menu').toggleClass('active');
+$('body').on('click', '.lk', (e) => {
+    $(e.currentTarget).toggleClass('active');
+    $('.sidebar').toggleClass('active');
+    $('html, body').toggleClass('overflow');
 });
 
 $('body').on('click', '.show-password', (e) => {
@@ -295,4 +302,13 @@ $('body').on('click', '.filter__toggle', (e) => {
 $('body').on('click', '.filter__close', (e) => {
     $('.filter').removeClass('active');
     $('html, body').removeClass('overflow');
+});
+
+$('body').on('change', 'input[data-tab]', (e) => {
+    $(e.currentTarget).closest('section').find('.tab').removeClass('active');
+    $(`.tab[data-tab="${$(e.currentTarget).attr('data-tab')}"]`).addClass('active');
+});
+
+$('body').on('click', '.sidebar .close', (e) => {
+    $('.sidebar').removeClass('active');
 });

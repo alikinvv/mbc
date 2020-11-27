@@ -73,7 +73,7 @@
 
 <section class="profile content">
         <div class="container">
-            <div class="sidebar">
+            <div class="sidebar show-mobile">
                 <div class="levels">
                     <a href="javascript:void(0)" class="levels__item active">
                         <svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-mac"></use></svg>
@@ -305,35 +305,35 @@
                     </div>
 
                     <div class="content__row">
-                        <h4>Cвободен</h4>
+                        <h4>Дни недели</h4>
 
                         <div class="content__flex radio">
                             <div class="form-group">
-                                <input type="radio" checked name="type" id="t3">
+                                <input type="checkbox" class="circle" checked name="types" id="t3">
                                 <label for="t3">Пн</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t4">
+                                <input type="checkbox" class="circle" name="types" id="t4">
                                 <label for="t4">Вт</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t5">
+                                <input type="checkbox" class="circle" name="types" id="t5">
                                 <label for="t5">Ср</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t6">
+                                <input type="checkbox" class="circle" name="types" id="t6">
                                 <label for="t6">Чт</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t7">
+                                <input type="checkbox" class="circle" name="types" id="t7">
                                 <label for="t7">Пт</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t8">
+                                <input type="checkbox" class="circle" name="types" id="t8">
                                 <label for="t8">Сб</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="t9">
+                                <input type="checkbox" class="circle" name="types" id="t9">
                                 <label for="t9">Вс</label>
                             </div>
                         </div>
@@ -344,12 +344,14 @@
 
                         <div class="content__flex">
                             <div class="form-group">
-                                <input id="look3" checked type="radio" name="look" class="full outline">
-                                <label for="look3">С 10:00</label>
+                                <input id="look3" type="radio" name="look" class="full outline active">
+                                <label for="look3">С</label>
+                                <input type="text">
                             </div>
                             <div class="form-group">
-                                <input id="look4" type="radio" name="look" class="full outline">
-                                <label for="look4">По 18:00</label>
+                                <input id="look4" type="radio" name="look" class="full outline active">
+                                <label for="look4">По</label>
+                                <input type="text">
                             </div>
                         </div>
                     </div>
@@ -371,15 +373,15 @@
 
                         <div class="content__flex radio">
                             <div class="form-group">
-                                <input type="radio" checked name="type" id="s3">
+                                <input type="checkbox" class="circle" checked name="type121" id="s3">
                                 <label for="s3">В офис</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="s4">
+                                <input type="checkbox" class="circle" name="type121" id="s4">
                                 <label for="s4">Удаленно</label>
                             </div>
                             <div class="form-group">
-                                <input type="radio" name="type" id="s5">
+                                <input type="checkbox" class="circle" name="type121" id="s5">
                                 <label for="s5">Проектная работа</label>
                             </div>
                         </div>
@@ -488,6 +490,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="js/jquery.mask.min.js"></script>
+<script src="js/svgxuse.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

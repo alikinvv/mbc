@@ -445,7 +445,7 @@
 <section class="features">
     <div class="container">
         <h2>Ценности нашей платформы</h2>
-        <div class="subtitle">И нет сомнений, что базовые сценарии поведения пользователей лишь <br> добавляют фракционных разногласий и превращены в посмешище, хотя само их </div>
+        <div class="subtitle">И&nbsp;нет сомнений, что базовые сценарии поведения пользователей лишь <br> добавляют фракционных разногласий и&nbsp;превращены в&nbsp;посмешище, хотя само&nbsp;их</div>
 
         <div class="features__list">
             <div class="features__item">
@@ -491,26 +491,43 @@
             
             <form action="">
                 <div class="form-group">
-                    <input id="look1" checked type="radio" name="look" class="full">
+                    <input id="look1" data-tab="marketolog" checked type="radio" name="look" class="full">
                     <label for="look1">Ищите маркетолога</label>
                 </div>
                 <div class="form-group">
-                    <input id="look2" type="radio" name="look" class="full">
+                    <input id="look2" data-tab="project" type="radio" name="look" class="full">
                     <label for="look2">Ищите проект</label>
                 </div>
             </form>
             
-            <div class="start__item">
-                <span>1</span> Зарегистрируйтесь на платформе
+            <div class="tab active" data-tab="marketolog">
+                <div class="start__item">
+                    <span>1</span> Зарегистрируйтесь на платформе
+                </div>
+                <div class="start__item">
+                    <span>2</span> Разместите задание
+                </div>
+                <div class="start__item">
+                    <span>3</span> Рассмотрите отклики
+                </div>
+                <div class="start__item">
+                    <span>4</span> Выберите исполнителя
+                </div>
             </div>
-            <div class="start__item">
-                <span>2</span> Разместите задание
-            </div>
-            <div class="start__item">
-                <span>3</span> Рассмотрите отклики
-            </div>
-            <div class="start__item">
-                <span>4</span> Выберите исполнителя
+
+            <div class="tab" data-tab="project">
+                <div class="start__item">
+                    <span>1</span>Test Зарегистрируйтесь на платформе
+                </div>
+                <div class="start__item">
+                    <span>2</span>Test Разместите задание
+                </div>
+                <div class="start__item">
+                    <span>3</span>Test Рассмотрите отклики
+                </div>
+                <div class="start__item">
+                    <span>4</span>Test Выберите исполнителя
+                </div>
             </div>
 
             <p>Вы всегда можете выбрать маркетолога из каталога</p>

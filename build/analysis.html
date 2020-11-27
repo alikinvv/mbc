@@ -43,7 +43,13 @@
             <div class="header__top-right">
                 <a href="javascript:void(0)" class="btn btn-outline-white">Бесплатный аудит проекта</a>
                 <div class="header__divider"></div>
-                <a class="header__login" href="javascript:void(0)"><svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-user"></use></svg> <span>Войти в личный кабинет</span></a>
+                <a class="header__login logged" href="javascript:void(0)">
+                    <div class="header__login-photo" style="background-image: url(img/icons/user-default.svg);"></div>
+                    <div>
+                        <div class="header__login-name">Эдуард Колесников</div>
+                        <div class="header__login-specialization">Фрилансер</div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -69,7 +75,6 @@
         </div>
     </div>
 </header>
-<!-- START CONTENT  -->
 
 <section class="analysis" style="background-image: url('img/analysis-bg.jpg')">
    <div class="container">
@@ -643,6 +648,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="js/jquery.mask.min.js"></script>
+<script src="js/svgxuse.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
