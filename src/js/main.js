@@ -63,7 +63,87 @@ let find = new Swiper('.find__list', {
     }
 });
 
-let caseSlider = new Swiper('.case__list', { init: false });
+let docs = new Swiper('.docs-slider', {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: '.docs.swiper-button-next',
+        prevEl: '.docs.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        320: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+        }
+    }
+});
+
+let photo = new Swiper('.photo-slider', {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: '.photo.swiper-button-next',
+        prevEl: '.photo.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+        320: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+        }
+    }
+});
+
+let article = new Swiper('.article-slider', {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: '.article.swiper-button-next',
+        prevEl: '.article.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        }
+    }
+});
+
+let specialistCases = new Swiper('.case__list:not(.slider-mobile)', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loopFillGroupWithBlank: true,
+    navigation: {
+        nextEl: '.case.swiper-button-next',
+        prevEl: '.case.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        320: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+        }
+    }
+});
+
+let caseSlider = new Swiper('.case__list.slider-mobile', { init: false });
 let service = new Swiper('.service__list', { init: false });
 
 $('input[name="phone"]').mask('+7 (000) 000-00-00');
@@ -113,7 +193,7 @@ let changeView = () => {
                 $(i).find('.marketolog__online').before($(i).find($('.marketolog__statusbar')));
             });
 
-            caseSlider = new Swiper('.case__list', {
+            caseSlider = new Swiper('.case__list.slider-mobile', {
                 slidesPerView: 1.5,
                 spaceBetween: 16,
                 loopFillGroupWithBlank: true,
@@ -137,7 +217,7 @@ let changeView = () => {
                 $(i).find('.marketolog__info-top').append($(i).find($('.marketolog__statusbar')));
             });
 
-            if ($('.case__list').length > 0) { caseSlider.destroy(); }
+            if ($('.case__list.mobile-slider').length > 0) { caseSlider.destroy(); }
             if ($('.service__list').length > 0) { service.destroy(); }
 
             $('.blog__category-more').remove();
@@ -148,7 +228,7 @@ let changeView = () => {
         $('.header__menu img').remove();
         
         if ($('.find__list').length > 0) { find.destroy(); }
-        if ($('.case__list').length > 0) { caseSlider.destroy(); }
+        if ($('.case__list.mobile-slider').length > 0) { caseSlider.destroy(); }
         if ($('.service__list').length > 0) { service.destroy(); }
         
         $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile p'));
