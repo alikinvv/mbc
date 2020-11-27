@@ -267,7 +267,7 @@ $('body').on('click', '.hamburger', (e) => {
 $('body').on('click', '.lk', (e) => {
     $(e.currentTarget).toggleClass('active');
     $('.sidebar').toggleClass('active');
-    $('html, body').toggleClass('overflow');
+    $('html, body').addClass('overflow');
 });
 
 $('body').on('click', '.show-password', (e) => {
@@ -311,4 +311,5 @@ $('body').on('change', 'input[data-tab]', (e) => {
 
 $('body').on('click', '.sidebar .close', (e) => {
     $('.sidebar').removeClass('active');
+    $('html, body').removeClass('overflow');
 });

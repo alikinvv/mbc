@@ -623,7 +623,7 @@ textarea {
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
-	z-index: 51;
+	z-index: 48;
 
 	span {
 		width: 100%;
@@ -936,7 +936,7 @@ textarea {
 
 		@include r(767) {
 			.header__left {
-				margin-top: 50% !important;
+				margin-top: 30% !important;
 			}
 
 			a {
@@ -2925,6 +2925,7 @@ textarea {
 		span {
 			@include r(767) {
 				font-size: 53px;
+				max-width: 17px;
 				margin-right: 34px;
 			}
 
@@ -3764,7 +3765,7 @@ textarea {
 			width: 90%;
 
 			.levels {
-				margin-top: 90px;
+				margin-top: 5%;
 			}
 
 			.levels__item {
@@ -3773,6 +3774,12 @@ textarea {
 
 			.close {
 				left: 28px;
+			}
+		}
+
+		@include r(374) {
+			.levels {
+				margin-top: 25%;
 			}
 		}
 	}
@@ -3999,7 +4006,7 @@ textarea {
 	&__photo {
 		@include r(767) {
 			height: 313px;
-			padding: 0;
+			padding: 0 10px;
 
 			h2 {
 				margin: 0 10%;
@@ -4694,6 +4701,7 @@ textarea {
 				height: 47px;
 				margin-bottom: 13px;
 				margin-right: 0;
+				width: 100%;
 			}
 			
 			width: 287px;
