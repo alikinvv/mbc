@@ -68,11 +68,7 @@ var docs = new Swiper('.docs-slider', {
     prevEl: '.docs.swiper-button-prev'
   },
   breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 30
-    },
-    320: {
+    767: {
       slidesPerView: 1.4,
       spaceBetween: 20
     }
