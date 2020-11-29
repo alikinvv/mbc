@@ -166,7 +166,7 @@ let changeView = () => {
     if ($(window).width() <= 1023 && $('.hamburger').length === 0) {
         $('.header__main .container').append('<div class="hamburger"><span></span></div>');
         if ($('.sidebar.show-mobile').length > 0) {
-            $('.header__main .container').append('<div class="lk"><span></span></div>');
+            $('.header__main .container').append('<div class="lk"><span></span> <svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-user"></use></svg></div>');
             $('.sidebar').prepend('<div class="close"></div>');
         }
 
@@ -191,6 +191,8 @@ let changeView = () => {
         $('.footer').append('<div class="container mobile"></div>');
         $('.footer .mobile').append($('.footer p'));
         $('.footer .mobile').append($('.footer__social'));
+        $('.services .content__main').prepend('<div class="filter__toggle">Фильтр <svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-filter"></use></svg></div>');
+        $('.services').append($('.filter'));
 
         if ($(window).width() <= 767) {
             $('.marketolog').each((el, i) => {
@@ -217,8 +219,6 @@ let changeView = () => {
                 $('.blog__category').append('<a href="javascript:void(0)" class="blog__category-more">Все теги</a>');
             }
 
-            $('.services .content__main').prepend('<div class="filter__toggle">Фильтр <svg class="icon"><use xlink:href="img/symbol-defs.svg#icon-filter"></use></svg></div>');
-            $('.services').append($('.filter'));
         } else {
             $('.marketolog').each((el, i) => {
                 $(i).find('.marketolog__info-top').append($(i).find($('.marketolog__statusbar')));
@@ -229,8 +229,6 @@ let changeView = () => {
 
             $('.blog__category-more').remove();
             $('.blog__category a').removeClass('hide');
-            $('.filter__toggle').remove();
-            $('.services .sidebar').append($('.filter'));
         }
     } else if ($(window).width() > 1023  && $('.hamburger').length > 0) {
         $('.hamburger').remove();
@@ -245,6 +243,8 @@ let changeView = () => {
         $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile p'));
         $('.footer .container:not(.mobile) .footer__col:last').append($('.footer .container.mobile .footer__social'));
         $('.footer .container.mobile').remove();
+        $('.filter__toggle').remove();
+        $('.services .sidebar').append($('.filter'));
     }
 }
 
@@ -313,3 +313,20 @@ $('body').on('click', '.sidebar .close', (e) => {
     $('.sidebar').removeClass('active');
     $('html, body').removeClass('overflow');
 });
+
+$('body').on('click', '.blog__category-more', (e) => {
+    $(e.currentTarget).remove();
+    $('.blog__category a').removeClass('hide');
+});
+
+$('body').on('click', '.specialist__review-text a', (e) => {
+    $(e.currentTarget).parent().find('span').toggleClass('block');
+    $(e.currentTarget).remove();
+});
+
+if ($(window).width() > 768) {
+    $(".specialist__user").sticky({ 
+        topSpacing: 140,
+        bottomSpacing: $('.footer').height() + $('.copyright').height() + 160
+     });
+}

@@ -663,6 +663,13 @@ textarea {
 			transition: bottom .2s ease-in-out .2s, transform .2s ease-in-out;
 		}
 	}
+
+	.icon {
+		margin-left: 34px;
+		font-size: 10px;
+		position: relative;
+		top: 4px;
+	}
 }
 
 .container {
@@ -3634,15 +3641,6 @@ textarea {
 		}
 	}
 
-	.exp {
-		input {
-			width: 49px;
-			padding: 13px 5px;
-			text-align: center;
-			margin-right: 10px;
-		}
-	}
-
 	.radio {
 		.form-group {
 			@include r(1279) {
@@ -4186,6 +4184,7 @@ textarea {
 			padding-left: 0 !important;
 			padding-right: 0 !important;
 			color: $blue;
+			font-weight: bold;
 		}
 	}
 
@@ -5272,6 +5271,7 @@ textarea {
 			margin-right: 0;
 			width: 100%;
 			padding: 26px;
+			max-width: initial;
 		}
 
 		@include r(767) {
@@ -5281,6 +5281,7 @@ textarea {
 		box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
 		padding: 26px 30px;
 		margin-right: 75px;
+		max-width: 314px;
 
 		&-photo {
 			@include r(767) {
@@ -5525,9 +5526,32 @@ textarea {
 		a {
 			color: $green;
 			text-decoration: underline;
+			margin-top: 5px;
 
 			&:hover {
 				text-decoration: none;
+			}
+		}
+
+		&-text  {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		
+			span {
+				&.block {
+					display: block;
+				}
+				
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -moz-box;
+				-moz-box-orient: vertical;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				line-clamp: 3;
+				box-orient: vertical;
 			}
 		}
 	}
@@ -5756,7 +5780,7 @@ textarea {
 	}
 
 	.filter {
-		@include r(767) {
+		@include r(1023) {
 			position: fixed;
 			top: 0;
 			right: 0;
@@ -5799,8 +5823,17 @@ textarea {
 			user-select: normal;
 		}
 
+		.exp {
+			input {
+				width: 49px;
+				padding: 13px 5px;
+				text-align: center;
+				margin-right: 10px;
+			}
+		}
+
 		&__header {
-			@include r(767) {
+			@include r(1023) {
 				display: flex;
 			}
 
@@ -6803,5 +6836,102 @@ textarea {
 
 	&.active {
 		display: block;
+	}
+}
+
+.upload {
+	@include r(767) {
+		padding: 0;
+		box-shadow: none;
+	}
+
+	box-shadow: 0px 0px 20px rgba(6, 25, 63, 0.15);
+	padding: 40px 42px;
+	margin-top: 40px;
+
+	&__title {
+		@include r(767) {
+			font-size: 16px;
+		}
+
+		font-size: 18px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+	}
+
+	p {
+		margin-bottom: 4px;
+	}
+
+	span {
+		color: #828282;
+		margin-bottom: 27px;
+		display: inline-block;
+	}
+
+	.form-group {
+		@include r(767) {
+			height: 85px;
+		}
+
+		position: relative;
+		background: $light-gray;
+		border: 1px dashed $gray;
+		height: 65px;
+		width: 100%;
+		cursor: pointer;
+
+		input {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			cursor: pointer;
+		}
+
+		p {
+			@include r(767) {
+				left: 50%;
+				transform: translateX(-50%);
+				top: 15px;
+			}
+
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 20px;
+			margin: 0;
+			color: #828282;
+			font-weight: bold;
+		}
+	}
+
+	&__icon {
+		@include r(767) {
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 15px;
+			top: initial;
+		}
+
+		display: flex;
+		align-items: center;
+		color: $green;
+		font-weight: bold;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 20px;
+
+		.icon {
+			fill: $green;
+			font-size: 10px;
+			margin-right: 7px;
+		}
 	}
 }
