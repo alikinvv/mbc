@@ -32,8 +32,8 @@ let reviews = new Swiper('.reviews__slider', {
         disableOnInteraction: false,
     },
     navigation: {
-        nextEl: '.reviews__slider .swiper-button-next',
-        prevEl: '.reviews__slider .swiper-button-prev',
+        nextEl: '.reviews-button.swiper-button-next',
+        prevEl: '.reviews-button.swiper-button-prev',
     },
     breakpoints: {
         1024: {
