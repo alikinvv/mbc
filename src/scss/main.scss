@@ -5543,7 +5543,7 @@ textarea {
 				@include r(767) {
 					max-height: 51px;
 				}
-				
+
 				&.block {
 					max-height: 100%;
 				}
@@ -6924,6 +6924,7 @@ textarea {
 			transform: translateX(-50%);
 			bottom: 15px;
 			top: initial;
+			right: initial;
 		}
 
 		display: flex;
