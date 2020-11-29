@@ -5540,6 +5540,10 @@ textarea {
 
 		&-text  {
 			span {
+				@include r(767) {
+					max-height: 51px;
+				}
+				
 				&.block {
 					max-height: 100%;
 				}
