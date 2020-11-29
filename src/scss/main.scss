@@ -461,6 +461,10 @@ select {
 	&:focus {
 		outline: noone;
 	}
+
+	&::-ms-expand {
+		display: none;
+	}
 }
 
 textarea {
@@ -1359,6 +1363,7 @@ textarea {
 		background: #fff;
 		flex-shrink: initial;
 		margin: 0 -1px;
+		flex-shrink: 1;
 
 		&:hover {
 			@include r(1023) {
@@ -5534,24 +5539,22 @@ textarea {
 		}
 
 		&-text  {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-		
 			span {
 				&.block {
-					display: block;
+					max-height: 100%;
 				}
 				
 				overflow: hidden;
 				text-overflow: ellipsis;
-				display: -moz-box;
-				-moz-box-orient: vertical;
-				display: -webkit-box;
-				-webkit-line-clamp: 2;
-				-webkit-box-orient: vertical;
-				line-clamp: 3;
-				box-orient: vertical;
+				max-height: 41px;
+				display: inline-block;
+			}
+
+			a {
+				position: relative;
+				left: 100%;
+				transform: translateX(-100%);
+				display: inline-block;
 			}
 		}
 	}

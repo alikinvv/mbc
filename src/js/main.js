@@ -55,7 +55,7 @@ let find = new Swiper('.find__list', {
             slidesPerView: 2,
             spaceBetween: 30,
         },
-        320: {
+        375: {
             slidesPerView: 1.4,
             spaceBetween: 20,
         }
@@ -145,7 +145,7 @@ let specialistCases = new Swiper('.case__list:not(.slider-mobile)', {
 let caseSlider = new Swiper('.case__list.slider-mobile', { init: false });
 let service = new Swiper('.service__list', { init: false });
 
-$('input[name="phone"]').mask('+7 (000) 000-00-00');
+// $('input[name="phone"]').mask('+7 (000) 000-00-00');
 
 let sameHeight = (elem) => {
     let highestBox = 0;
@@ -177,14 +177,14 @@ let changeView = () => {
             spaceBetween: 30,
             loopFillGroupWithBlank: true,
             breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-                320: {
+                767: {
                     slidesPerView: 1.4,
                     spaceBetween: 20,
-                }
+                },
+                374: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                },
             }
         });
 
