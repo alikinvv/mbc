@@ -91,11 +91,7 @@ let photo = new Swiper('.photo-slider', {
         prevEl: '.photo.swiper-button-prev',
     },
     breakpoints: {
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-        },
-        320: {
+        767: {
             slidesPerView: 1.4,
             spaceBetween: 20,
         }
@@ -111,11 +107,7 @@ let article = new Swiper('.article-slider', {
         prevEl: '.article.swiper-button-prev',
     },
     breakpoints: {
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-        },
-        320: {
+        767: {
             slidesPerView: 1,
             spaceBetween: 20,
         }
@@ -131,11 +123,7 @@ let specialistCases = new Swiper('.case__list:not(.slider-mobile)', {
         prevEl: '.case.swiper-button-prev',
     },
     breakpoints: {
-        768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-        },
-        320: {
+        767: {
             slidesPerView: 1.4,
             spaceBetween: 20,
         }
