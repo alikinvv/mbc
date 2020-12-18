@@ -497,6 +497,7 @@ textarea {
 		width: 16px;
 		height: 16px;
 		transition: $trans;
+		pointer-events: none;
 	}
 
 	&.active::after {
@@ -4860,6 +4861,7 @@ textarea {
 
 	.form-group {
 		position: relative;
+		margin-bottom: -1px;
 
 		.icon {
 			position: absolute;
@@ -4888,7 +4890,7 @@ textarea {
 		}
 	}
 
-	button {
+	.btn {
 		@include r(767) {
 			padding: 17px 34px;
 		}
@@ -4927,7 +4929,6 @@ textarea {
 			font-size: 14px;
 		}
 
-		font-weight: bold;
 		font-size: 18px;
 		text-align: center;
 		text-transform: uppercase;
@@ -5832,10 +5833,16 @@ textarea {
 
 		.exp {
 			input {
-				width: 49px;
+				width: 80px;
 				padding: 13px 5px;
 				text-align: center;
 				margin-right: 10px;
+			}
+		}
+
+		.city {
+			input {
+				width: 100%;
 			}
 		}
 
